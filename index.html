@@ -25,52 +25,6 @@
   </header>
 
   <main class="container">
-    <!-- Dashboard -->
-    <section id="dashboard">
-      <h2>Dashboard</h2>
-      <p>
-        A quick look at our current availability and request activity.
-      </p>
-
-      <div class="dashboard-grid">
-        <article class="card stat-card">
-          <p class="stat-label">Open requests</p>
-          <p class="stat-value">12</p>
-          <p class="stat-note">Updated today</p>
-        </article>
-
-        <article class="card stat-card">
-          <p class="stat-label">Volunteers online</p>
-          <p class="stat-value">4</p>
-          <p class="stat-note">Next check-in at 19:00</p>
-        </article>
-
-        <article class="card stat-card">
-          <p class="stat-label">Average response</p>
-          <p class="stat-value">24 hrs</p>
-          <p class="stat-note">Based on last 30 days</p>
-        </article>
-      </div>
-
-      <div class="card status-card">
-        <div>
-          <h3>Service status</h3>
-          <p class="small">
-            We are accepting new requests. Response times may be longer on weekends.
-          </p>
-        </div>
-        <span class="status-pill available">Accepting requests</span>
-      </div>
-
-      <div class="card updates-card">
-        <h3>Recent updates</h3>
-        <ul class="updates-list">
-          <li>Network troubleshooting guide refreshed for 2024.</li>
-          <li>Added support for printer setup and driver issues.</li>
-          <li>Expanded coverage for macOS Sonoma questions.</li>
-        </ul>
-      </div>
-    </section>
 
     <!-- What this is -->
     <section>
@@ -157,68 +111,9 @@
       </p>
 
       <div class="form-wrapper">
-        <form class="request-form">
-          <div class="form-grid">
-            <label class="form-field">
-              Full name
-              <input type="text" name="full-name" placeholder="Alex Johnson" required />
-            </label>
-
-            <label class="form-field">
-              Email address
-              <input type="email" name="email" placeholder="alex@email.com" required />
-            </label>
-
-            <label class="form-field">
-              Preferred contact method
-              <select name="contact-method" required>
-                <option value="" disabled selected>Select one</option>
-                <option>Email</option>
-                <option>Phone call</option>
-                <option>Text message</option>
-                <option>WhatsApp</option>
-              </select>
-            </label>
-
-            <label class="form-field">
-              Best time to reach you
-              <input type="text" name="availability" placeholder="Weekdays after 18:00" />
-            </label>
-
-            <label class="form-field">
-              Device or system
-              <input type="text" name="device" placeholder="Windows 11 laptop, iPhone, router, etc." required />
-            </label>
-
-            <label class="form-field">
-              Issue category
-              <select name="issue-category" required>
-                <option value="" disabled selected>Select one</option>
-                <option>Wi-Fi / Internet</option>
-                <option>Operating system</option>
-                <option>Account / password</option>
-                <option>Security concern</option>
-                <option>Software / app</option>
-                <option>Other</option>
-              </select>
-            </label>
-          </div>
-
-          <label class="form-field">
-            Describe the issue
-            <textarea name="issue-details" rows="5" placeholder="What happened? Any error messages? What have you already tried?" required></textarea>
-          </label>
-
-          <label class="form-field checkbox-field">
-            <input type="checkbox" required />
-            I understand this service is volunteer-based and responses are not guaranteed.
-          </label>
-
-          <div class="form-actions">
-            <button type="submit" class="button">Submit request</button>
-            <p class="help-text">We only use your information to respond to this request.</p>
-          </div>
-        </form>
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSc9qQH8BChzru6v62Z4NJ3TEsm9SuKMpACo8LY06362cNdJlw/viewform?embedded=true">
+        </iframe>
       </div>
 
       <p class="small">
