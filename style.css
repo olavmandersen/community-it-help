@@ -373,6 +373,10 @@ iframe {
   gap: 1rem;
 }
 
+.help-form .button[type="submit"] {
+  margin-top: 0.5rem;
+}
+
 .help-form.submitted .form-fields {
   display: none;
 }
