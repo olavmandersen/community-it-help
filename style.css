@@ -373,6 +373,22 @@ iframe {
   gap: 1rem;
 }
 
+.help-form.submitted .form-fields {
+  display: none;
+}
+
+.help-form .form-success {
+  display: none;
+}
+
+.help-form.submitted .form-success {
+  display: block;
+}
+
+.form-success {
+  animation: fadeUp 0.5s ease-out both;
+}
+
 .compact-form {
   gap: 0.75rem;
 }

@@ -45,44 +45,47 @@
 
       <div class="form-wrapper">
         <form id="help-form" class="help-form" autocomplete="on">
-          <div class="field">
-            <label for="name" data-i18n="label_name">Name</label>
-            <input id="name" name="name" type="text" autocomplete="name" placeholder="Chuck Norris" required />
+          <div class="form-fields">
+            <div class="field">
+              <label for="name" data-i18n="label_name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="Chuck Norris" required />
+            </div>
+
+            <div class="field">
+              <label for="email" data-i18n="label_email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="notaborg@skynet.ai" required />
+            </div>
+
+            <div class="field">
+              <label for="device" data-i18n="label_device">Device / OS</label>
+              <input id="device" name="device" type="text" data-i18n-placeholder="placeholder_device" placeholder="e.g., Windows 11 laptop" />
+            </div>
+
+            <div class="field">
+              <label for="subject" data-i18n="label_subject">Short summary</label>
+              <input id="subject" name="subject" type="text" required />
+            </div>
+
+            <div class="field">
+              <label for="message" data-i18n="label_message">Describe the problem</label>
+              <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+
+            <div class="field">
+              <label for="urgency" data-i18n="label_urgency">Urgency</label>
+              <select id="urgency" name="urgency">
+                <option value="low" data-i18n="urgency_low">Low</option>
+                <option value="medium" selected data-i18n="urgency_medium">Medium</option>
+                <option value="high" data-i18n="urgency_high">High</option>
+              </select>
+            </div>
+
+            <input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" />
+
+            <button class="button" type="submit" data-i18n="submit">Send request</button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
           </div>
 
-          <div class="field">
-            <label for="email" data-i18n="label_email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" placeholder="notaborg@skynet.ai" required />
-          </div>
-
-          <div class="field">
-            <label for="device" data-i18n="label_device">Device / OS</label>
-            <input id="device" name="device" type="text" data-i18n-placeholder="placeholder_device" placeholder="e.g., Windows 11 laptop" />
-          </div>
-
-          <div class="field">
-            <label for="subject" data-i18n="label_subject">Short summary</label>
-            <input id="subject" name="subject" type="text" required />
-          </div>
-
-          <div class="field">
-            <label for="message" data-i18n="label_message">Describe the problem</label>
-            <textarea id="message" name="message" rows="6" required></textarea>
-          </div>
-
-          <div class="field">
-            <label for="urgency" data-i18n="label_urgency">Urgency</label>
-            <select id="urgency" name="urgency">
-              <option value="low" data-i18n="urgency_low">Low</option>
-              <option value="medium" selected data-i18n="urgency_medium">Medium</option>
-              <option value="high" data-i18n="urgency_high">High</option>
-            </select>
-          </div>
-
-          <input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" />
-
-          <button class="button" type="submit" data-i18n="submit">Send request</button>
-          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
           <div class="form-success" id="form-success" role="status" aria-live="polite" hidden>
             <span data-i18n="success_message">Thanks! Your request was sent. We’ll get back to you as soon as we can.</span>
           </div>
@@ -592,7 +595,10 @@
 
         if (statusEl) statusEl.textContent = "";
         if (successEl) successEl.hidden = false;
-        form.reset();
+        form.classList.add("submitted");
+        if (successEl) {
+          successEl.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
 
         if (NOTIFY_FUNCTION_NAME) {
           console.log("Calling notify function…", {
