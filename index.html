@@ -26,8 +26,6 @@
       </p>
 
       <a href="#request" class="button" data-i18n="cta_request">Request help</a>
-      <a href="#how" class="button secondary" id="how-button" data-i18n="cta_how">How it works</a>
-      <a href="#about" class="button secondary" id="about-button" data-i18n="cta_about">About us</a>
 
       <div class="live-counter" aria-live="polite">
         <span class="dot" aria-hidden="true"></span>
@@ -253,9 +251,6 @@
 
   <script>
     const aboutDetails = document.getElementById("about-details");
-    const aboutButton = document.getElementById("about-button");
-    const howDetails = document.getElementById("how-details");
-    const howButton = document.getElementById("how-button");
     const reloadLogo = document.getElementById("reload-logo");
     const langButtons = document.querySelectorAll(".lang-button");
     const openTargetDetails = () => {
@@ -307,16 +302,6 @@
     };
 
     window.addEventListener("hashchange", openTargetDetails);
-    if (aboutButton) {
-      aboutButton.addEventListener("click", () => {
-        if (aboutDetails) aboutDetails.open = true;
-      });
-    }
-    if (howButton) {
-      howButton.addEventListener("click", () => {
-        if (howDetails) howDetails.open = true;
-      });
-    }
     if (reloadLogo) {
       reloadLogo.addEventListener("click", (event) => {
         event.preventDefault();

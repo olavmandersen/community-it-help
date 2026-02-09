@@ -4,8 +4,8 @@
   --bg-card-alt: #1b2230;
   --text-main: #e5e7eb;
   --text-muted: #9ca3af;
-  --accent: #3b82f6;
-  --accent-hover: #2563eb;
+  --accent: #5b75c9;
+  --accent-hover: #4f66b6;
   --border: #273043;
 }
 
@@ -112,7 +112,8 @@ p {
   background-color: var(--accent);
   color: white;
   padding: 0.75rem 1.25rem;
-  border-radius: 6px;
+  border-radius: 999px;
+  border: none;
   text-decoration: none;
   font-weight: 500;
   margin-right: 0.75rem;
