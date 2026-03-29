@@ -516,49 +516,20 @@
     });
   </script>
 
-  <script type="module">
-    import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
-
-    const SUPABASE_URL = "https://sqrnuydahsdbdftgghtf.supabase.co";
-    const SUPABASE_ANON_KEY =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNxcm51eWRhaHNkYmRmdGdnaHRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk2NzQ3MjUsImV4cCI6MjA4NTI1MDcyNX0.o95HOLYf6D21E_pd9T6zJ0jr9iGubpisEaeQdYJZjFE";
-
+  <script>
     const countEl = document.getElementById("live-count");
-    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-    const NOTIFY_FUNCTION_NAME = "notify-help-request";
-    const CONTACT_FORM_TOKEN = "07a129bf26f76ec0eb5021fe96c8f71679c2bcba49048253636117476f10bd7d";
-
-    const sessionId =
-      (crypto.randomUUID && crypto.randomUUID()) ||
-      `${Date.now()}-${Math.random().toString(16).slice(2)}`;
-
-    const channel = supabase.channel("online-users", {
-      config: { presence: { key: sessionId } },
-    });
-
-    const updateCount = () => {
-      const state = channel.presenceState();
-      const count = Object.keys(state).length;
-      if (countEl) countEl.textContent = String(count);
-    };
-
-    channel.on("presence", { event: "sync" }, updateCount);
-
-    channel.subscribe(async (status) => {
-      if (status !== "SUBSCRIBED") return;
-      await channel.track({ online_at: new Date().toISOString() });
-      updateCount();
-    });
-
-    window.addEventListener("beforeunload", () => {
-      channel.untrack();
-    });
-
     const form = document.getElementById("help-form");
     const statusEl = document.getElementById("form-status");
     const successEl = document.getElementById("form-success");
     const deleteForm = document.getElementById("delete-form");
     const deleteStatus = document.getElementById("delete-status");
+
+    const setOnlineCount = () => {
+      if (!countEl) return;
+      countEl.textContent = "1";
+    };
+
+    setOnlineCount();
 
     if (form) {
       form.addEventListener("submit", async (event) => {
@@ -582,8 +553,17 @@
           urgency: data.get("urgency"),
         };
 
-        const { error } = await supabase.from("help_requests").insert(payload);
-        if (error) {
+        try {
+          const response = await fetch("/api/help-request", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+
+          if (!response.ok) {
+            throw new Error("Request failed");
+          }
+        } catch (error) {
           if (statusEl) statusEl.textContent = translations[document.documentElement.lang]?.delete_error || "Something went wrong. Try again.";
           return;
         }
@@ -593,17 +573,6 @@
         form.classList.add("submitted");
         if (successEl) {
           successEl.scrollIntoView({ behavior: "smooth", block: "center" });
-        }
-
-        if (NOTIFY_FUNCTION_NAME) {
-          const { error: notifyError } = await supabase.functions.invoke(NOTIFY_FUNCTION_NAME, {
-            headers: { "X-Form-Token": CONTACT_FORM_TOKEN },
-            body: payload,
-          });
-
-          if (notifyError && statusEl) {
-            statusEl.textContent = "Saved, but notify failed. Check console.";
-          }
         }
       });
     }
@@ -619,8 +588,17 @@
           type: data.get("type"),
         };
 
-        const { error } = await supabase.from("delete_requests").insert(payload);
-        if (error) {
+        try {
+          const response = await fetch("/api/delete-request", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+
+          if (!response.ok) {
+            throw new Error("Delete request failed");
+          }
+        } catch (error) {
           if (deleteStatus) deleteStatus.textContent = translations[document.documentElement.lang]?.delete_error || "Something went wrong. Try again.";
           return;
         }
