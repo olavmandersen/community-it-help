@@ -4,219 +4,234 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TecIT</title>
-
-  <!-- Link CSS -->
+  <meta
+    name="description"
+    content="TecIT is a volunteer-based IT help project offering calm, practical support with everyday tech problems."
+  />
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <a class="side-logo" href="#" id="reload-logo" aria-label="Reload TecIT site">Tecit.</a>
+  <a class="brand-mark" href="#top" id="reload-logo" aria-label="Reload TecIT site">TecIT<span>.</span></a>
 
-  <!-- Header / Hero -->
-  <header>
-    <div class="container">
-      <div class="lang-toggle" role="group" aria-label="Language">
-        <button class="lang-button" type="button" data-lang="en" aria-pressed="true">English</button>
-        <button class="lang-button" type="button" data-lang="no" aria-pressed="false">Norsk</button>
+  <header id="top" class="hero-shell">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="hero-topbar">
+          <div class="lang-toggle" role="group" aria-label="Language">
+            <button class="lang-button" type="button" data-lang="en" aria-pressed="true">English</button>
+            <button class="lang-button" type="button" data-lang="no" aria-pressed="false">Norsk</button>
+          </div>
+
+          <div class="status-pill" aria-live="polite">
+            <span class="dot" aria-hidden="true"></span>
+            <span id="live-count">0</span>
+            <span data-i18n="online_suffix">online now</span>
+          </div>
+        </div>
+
+        <div class="eyebrow" data-i18n="hero_eyebrow">Volunteer-based IT help</div>
+        <h1 data-i18n="hero_title">Calm, practical IT help when tech gets annoying.</h1>
+        <p class="lead" data-i18n="hero_lead">
+          TecIT is a small volunteer project run by IT students and tech people who like solving real problems without turning it into a support-script circus.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#request" class="button" data-i18n="cta_request">Request help</a>
+          <a href="#how-it-works" class="button secondary" data-i18n="cta_how">How it works</a>
+        </div>
+
+        <ul class="hero-points">
+          <li data-i18n="hero_point1">Simple help with computers, Wi-Fi, devices and software issues</li>
+          <li data-i18n="hero_point2">Volunteer-based, honest and low-pressure</li>
+          <li data-i18n="hero_point3">Best when you need a second pair of eyes on a specific problem</li>
+        </ul>
       </div>
 
-      <h1 data-i18n="hero_title">Free IT help — when we’re available.</h1>
-      <p class="lead" data-i18n="hero_lead">
-        A small, volunteer-based IT help project run by IT students and tech enthusiasts.
-      </p>
+      <div class="hero-panel card-panel">
+        <div class="panel-kicker" data-i18n="panel_kicker">What this is good for</div>
+        <h2 data-i18n="panel_title">A clean way to ask for help without feeling stupid.</h2>
+        <p data-i18n="panel_body">
+          Send a short summary of the issue and we’ll take a look when someone is available. If we can help, we’ll reach out.
+        </p>
 
-      <a href="#request" class="button" data-i18n="cta_request">Request help</a>
-
-      <div class="live-counter" aria-live="polite">
-        <span class="dot" aria-hidden="true"></span>
-        <span id="live-count">0</span> online
+        <div class="mini-grid">
+          <div class="mini-card">
+            <strong data-i18n="mini_title1">Good fit</strong>
+            <p data-i18n="mini_body1">PC issues, setup problems, Wi-Fi trouble, strange errors, account or safety questions.</p>
+          </div>
+          <div class="mini-card">
+            <strong data-i18n="mini_title2">Not a fit</strong>
+            <p data-i18n="mini_body2">Emergency support, guaranteed response times, or anything requiring unsafe access or password sharing.</p>
+          </div>
+        </div>
       </div>
     </div>
   </header>
 
-  <main class="container layout">
-    <section id="request" class="primary animate-in">
-      <h2 data-i18n="request_title">Request help</h2>
-      <p data-i18n="request_lead">
-        Fill out the form below. If someone is available and able to help, we’ll get back to you.
-      </p>
-
-      <div class="form-wrapper">
-        <form id="help-form" class="help-form" autocomplete="on">
-          <div class="form-fields">
-            <div class="field">
-              <label for="name" data-i18n="label_name">Name</label>
-              <input id="name" name="name" type="text" autocomplete="name" placeholder="Chuck Norris" required />
-            </div>
-
-            <div class="field">
-              <label for="email" data-i18n="label_email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="notaborg@skynet.ai" required />
-            </div>
-
-            <div class="field">
-              <label for="device" data-i18n="label_device">Device / OS</label>
-              <input id="device" name="device" type="text" data-i18n-placeholder="placeholder_device" placeholder="e.g., Windows 11 laptop" />
-            </div>
-
-            <div class="field">
-              <label for="subject" data-i18n="label_subject">Short summary</label>
-              <input id="subject" name="subject" type="text" required />
-            </div>
-
-            <div class="field">
-              <label for="message" data-i18n="label_message">Describe the problem</label>
-              <textarea id="message" name="message" rows="6" required></textarea>
-            </div>
-
-            <div class="field">
-              <label for="urgency" data-i18n="label_urgency">Urgency</label>
-              <select id="urgency" name="urgency">
-                <option value="low" data-i18n="urgency_low">Low</option>
-                <option value="medium" selected data-i18n="urgency_medium">Medium</option>
-                <option value="high" data-i18n="urgency_high">High</option>
-              </select>
-            </div>
-
-            <input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" />
-
-            <button class="button" type="submit" data-i18n="submit">Send request</button>
-            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-          </div>
-
-          <div class="form-success" id="form-success" role="status" aria-live="polite" hidden>
-            <span data-i18n="success_message">Thanks! Your request was sent. We’ll get back to you as soon as we can.</span>
-          </div>
-        </form>
+  <main>
+    <section class="section-strip">
+      <div class="container signal-bar">
+        <div class="signal-item">
+          <span class="signal-label" data-i18n="signal_label1">Style</span>
+          <span class="signal-value" data-i18n="signal_value1">Human, practical, straight to the point</span>
+        </div>
+        <div class="signal-item">
+          <span class="signal-label" data-i18n="signal_label2">Run by</span>
+          <span class="signal-value" data-i18n="signal_value2">Students and tech enthusiasts</span>
+        </div>
+        <div class="signal-item">
+          <span class="signal-label" data-i18n="signal_label3">Approach</span>
+          <span class="signal-value" data-i18n="signal_value3">Best-effort, low-pressure, privacy-minded</span>
+        </div>
       </div>
-
-      <p class="small" data-i18n="request_note">
-        Requests are visible to multiple volunteers working on this project.
-      </p>
     </section>
 
-    <aside class="sidebar">
-      <h3 class="sidebar-title" data-i18n="learn_more">Learn more</h3>
+    <section class="container content-grid">
+      <section id="request" class="request-column">
+        <div class="section-intro">
+          <div class="eyebrow" data-i18n="request_eyebrow">Request help</div>
+          <h2 data-i18n="request_title">Tell us what’s going on.</h2>
+          <p data-i18n="request_lead">
+            Keep it simple. A few good details usually help more than a dramatic essay.
+          </p>
+        </div>
 
-      <!-- What this is -->
-      <section class="collapsible-section">
-        <details class="collapsible">
-          <summary data-i18n="what_title">What this is</summary>
-          <div class="collapsible-content">
-            <div class="card">
-            <p data-i18n="what_body">
-              We help with everyday technical problems when we have the time.
-              This project is volunteer-based and run in our spare time.
-            </p>
-            <ul>
-              <li data-i18n="what_item1">Wi-Fi and home network issues</li>
-              <li data-i18n="what_item2">Windows and macOS problems</li>
-              <li data-i18n="what_item3">Basic cybersecurity questions</li>
-            </ul>
+        <div class="form-wrapper glass-card">
+          <form id="help-form" class="help-form" autocomplete="on">
+            <div class="form-fields">
+              <div class="field-grid two-up">
+                <div class="field">
+                  <label for="name" data-i18n="label_name">Name</label>
+                  <input id="name" name="name" type="text" autocomplete="name" placeholder="Chuck Norris" required />
+                </div>
+
+                <div class="field">
+                  <label for="email" data-i18n="label_email">Email</label>
+                  <input id="email" name="email" type="email" autocomplete="email" placeholder="notaborg@skynet.ai" required />
+                </div>
+              </div>
+
+              <div class="field-grid two-up">
+                <div class="field">
+                  <label for="device" data-i18n="label_device">Device / OS</label>
+                  <input id="device" name="device" type="text" data-i18n-placeholder="placeholder_device" placeholder="e.g., Windows 11 laptop" />
+                </div>
+
+                <div class="field">
+                  <label for="urgency" data-i18n="label_urgency">Urgency</label>
+                  <select id="urgency" name="urgency">
+                    <option value="low" data-i18n="urgency_low">Low</option>
+                    <option value="medium" selected data-i18n="urgency_medium">Medium</option>
+                    <option value="high" data-i18n="urgency_high">High</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="subject" data-i18n="label_subject">Short summary</label>
+                <input id="subject" name="subject" type="text" required />
+              </div>
+
+              <div class="field">
+                <label for="message" data-i18n="label_message">Describe the problem</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+              </div>
+
+              <input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" />
+
+              <div class="form-actions">
+                <button class="button" type="submit" data-i18n="submit">Send request</button>
+                <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+              </div>
             </div>
-          </div>
-        </details>
+
+            <div class="form-success" id="form-success" role="status" aria-live="polite" hidden>
+              <span data-i18n="success_message">Thanks! Your request was sent. We’ll get back to you as soon as we can.</span>
+            </div>
+          </form>
+        </div>
+
+        <p class="small request-note" data-i18n="request_note">
+          Requests are visible to multiple volunteers working on this project.
+        </p>
       </section>
 
-      <!-- How it works -->
-      <section id="how" class="collapsible-section">
-        <details class="collapsible" id="how-details">
-          <summary data-i18n="how_title">How it works</summary>
-          <div class="collapsible-content">
-            <div class="card">
-            <ol>
-              <li data-i18n="how_step1">You submit a request</li>
-              <li data-i18n="how_step2">We review it when available</li>
-              <li data-i18n="how_step3">If someone can help, we’ll get in touch</li>
-            </ol>
-            </div>
-          </div>
-        </details>
-      </section>
+      <aside class="info-column">
+        <section id="how-it-works" class="info-card glass-card">
+          <div class="eyebrow" data-i18n="how_eyebrow">How it works</div>
+          <h3 data-i18n="how_title">Simple process. No ticket-system theater.</h3>
+          <ol>
+            <li data-i18n="how_step1">You send a request</li>
+            <li data-i18n="how_step2">We review it when someone has time</li>
+            <li data-i18n="how_step3">If we can help, we get in touch</li>
+          </ol>
+        </section>
 
-      <!-- What to expect -->
-      <section class="collapsible-section">
-        <details class="collapsible">
-          <summary data-i18n="expect_title">What to expect</summary>
-          <div class="collapsible-content">
-            <div class="notice" data-i18n="expect_body">
-            Help is provided by volunteers in their spare time and offered on a best-effort basis.
-            We can’t guarantee fast responses or solutions to all problems.
-            </div>
-          </div>
-        </details>
-      </section>
+        <section class="info-card glass-card">
+          <div class="eyebrow" data-i18n="what_eyebrow">What we usually help with</div>
+          <h3 data-i18n="what_title">The everyday stuff that still eats your evening.</h3>
+          <ul>
+            <li data-i18n="what_item1">Wi-Fi and home network issues</li>
+            <li data-i18n="what_item2">Windows and macOS problems</li>
+            <li data-i18n="what_item3">Basic cybersecurity questions</li>
+            <li data-i18n="what_item4">Setup confusion, weird errors and “why is this suddenly broken?” moments</li>
+          </ul>
+        </section>
 
-      <!-- When should you use this -->
-      <section class="collapsible-section">
-        <details class="collapsible">
-          <summary data-i18n="when_title">When is this right for you?</summary>
-          <div class="collapsible-content">
-            <div class="card">
-            <p data-i18n="when_body">
-              This service is best suited when you're stuck with a specific technical problem
-              and can’t quite solve it on your own.
-            </p>
-          
-            <ul>
-              <li data-i18n="when_item1">You have an issue with your PC, network, or software and can’t find a clear solution</li>
-              <li data-i18n="when_item2">You’re getting error messages or strange behavior that doesn’t make sense</li>
-              <li data-i18n="when_item3">You’re unsure what is actually safe to do</li>
-              <li data-i18n="when_item4">You want help before doing something that might break or delete something important</li>
-              <li data-i18n="when_item5">You need someone to look at your specific situation</li>
-            </ul>
-            </div>
-          </div>
-        </details>
-      </section>
+        <section class="info-card glass-card">
+          <div class="eyebrow" data-i18n="expect_eyebrow">What to expect</div>
+          <h3 data-i18n="expect_title">Honest limits, not fake promises.</h3>
+          <p data-i18n="expect_body">
+            Help is provided by volunteers in their spare time and offered on a best-effort basis. We can’t guarantee fast responses or solutions to everything.
+          </p>
+        </section>
 
-      <!-- About us -->
-      <section id="about" class="collapsible-section">
-        <details class="collapsible" id="about-details">
-          <summary data-i18n="about_title">About us</summary>
-          <div class="collapsible-content">
-            <div class="card">
-            <p data-i18n="about_p1">
-              We’re a small group of IT professionals and tech enthusiasts who enjoy troubleshooting
-              and helping people solve everyday technical problems.
-            </p>
+        <section id="about" class="info-card glass-card">
+          <div class="eyebrow" data-i18n="about_eyebrow">About TecIT</div>
+          <h3 data-i18n="about_title">A small project built by people who actually like troubleshooting.</h3>
+          <p data-i18n="about_p1">
+            We’re a small group of IT students and tech enthusiasts who enjoy solving real-world problems and helping people get unstuck.
+          </p>
+          <p data-i18n="about_p2">
+            The project is volunteer-based and run in our spare time, so we help when we can and stay realistic about what we can handle safely.
+          </p>
+          <p data-i18n="about_p3">
+            The goal is simple: lower the barrier for getting practical IT help from someone who won’t talk down to you.
+          </p>
+        </section>
+      </aside>
+    </section>
 
-            <p data-i18n="about_p2">
-              Our background includes a Bachelor’s degree in Cybersecurity, completed through
-              the University of South Wales (USW) and Noroff.
-            </p>
+    <section class="container trust-grid">
+      <div class="trust-card glass-card">
+        <div class="eyebrow" data-i18n="when_eyebrow">When this makes sense</div>
+        <h3 data-i18n="when_title">Best when you’re stuck on something specific.</h3>
+        <ul>
+          <li data-i18n="when_item1">You have a problem with your PC, network, or software and can’t find a clear answer</li>
+          <li data-i18n="when_item2">Something is behaving strangely and you want another pair of eyes on it</li>
+          <li data-i18n="when_item3">You’re unsure what is actually safe to do next</li>
+          <li data-i18n="when_item4">You want help before clicking the wrong thing and making it worse</li>
+        </ul>
+      </div>
 
-            <p data-i18n="about_p3">
-              This project is run in our spare time and is completely volunteer-based.
-              We help when we’re available and only with what we can reasonably handle.
-            </p>
-            </div>
-          </div>
-        </details>
-      </section>
-    </aside>
-  </main>
+      <div class="trust-card glass-card">
+        <div class="eyebrow" data-i18n="terms_eyebrow">Privacy and boundaries</div>
+        <h3 data-i18n="terms_title">Terms & service</h3>
+        <p data-i18n="terms_p1">
+          This is a volunteer service. Help is provided as-is, without guarantees or liability. We won’t ask for passwords, and you should never share sensitive data.
+        </p>
+        <p data-i18n="terms_p2">
+          We care about privacy and security. We collect only what’s needed, use TLS in transit, and handle submitted information responsibly.
+        </p>
+      </div>
+    </section>
 
-  <section class="container terms" aria-labelledby="terms-title">
-    <div class="terms-header">
-      <h3 id="terms-title" data-i18n="terms_title">Terms & Service</h3>
-      <span class="terms-badge" data-i18n="terms_badge">Important</span>
-    </div>
-    <div class="terms-card">
-      <p data-i18n="terms_p1">
-        This is a volunteer service. Help is provided as‑is, without guarantees or liability.
-        We won’t ask for passwords, and you should never share sensitive data.
-        We may decline requests we can’t safely handle.
-      </p>
-      <p data-i18n="terms_p2">
-        We care about privacy and security. We follow GDPR principles, collect only what’s needed,
-        use TLS to protect data in transit, and handle information responsibly.
-      </p>
-    </div>
-    <details class="collapsible terms-collapsible">
-      <summary data-i18n="delete_title">Delete my data</summary>
-      <div class="collapsible-content">
-        <div class="terms-card">
+    <section class="container delete-wrap">
+      <details class="delete-card glass-card">
+        <summary>
+          <span data-i18n="delete_title">Delete my data</span>
+        </summary>
+        <div class="collapsible-content static-open-content">
           <p data-i18n="delete_lead">
             Use this quick form if you want us to remove your data from our system.
           </p>
@@ -224,106 +239,80 @@
             We only store the information you submit in the help form (name, email, device, subject, message, urgency).
           </p>
           <form id="delete-form" class="help-form compact-form" autocomplete="on">
-            <div class="field">
-              <label for="delete-email" data-i18n="delete_email">Email</label>
-              <input id="delete-email" name="email" type="email" autocomplete="email" required />
+            <div class="field-grid two-up">
+              <div class="field">
+                <label for="delete-email" data-i18n="delete_email">Email</label>
+                <input id="delete-email" name="email" type="email" autocomplete="email" required />
+              </div>
+              <div class="field">
+                <label for="delete-type" data-i18n="delete_type">What should we delete?</label>
+                <select id="delete-type" name="type" required>
+                  <option value="all" data-i18n="delete_opt_all">All data about me</option>
+                  <option value="requests" data-i18n="delete_opt_requests">Help requests</option>
+                  <option value="messages" data-i18n="delete_opt_messages">Messages / notes</option>
+                </select>
+              </div>
             </div>
-            <div class="field">
-              <label for="delete-type" data-i18n="delete_type">What should we delete?</label>
-              <select id="delete-type" name="type" required>
-                <option value="all" data-i18n="delete_opt_all">All data about me</option>
-                <option value="requests" data-i18n="delete_opt_requests">Help requests</option>
-                <option value="messages" data-i18n="delete_opt_messages">Messages / notes</option>
-              </select>
+            <div class="form-actions compact-actions">
+              <button class="button secondary" type="submit" data-i18n="delete_submit">Send delete request</button>
+              <p class="form-status" id="delete-status" role="status" aria-live="polite"></p>
             </div>
-            <button class="button secondary" type="submit" data-i18n="delete_submit">Send delete request</button>
-            <p class="form-status" id="delete-status" role="status" aria-live="polite"></p>
           </form>
         </div>
-      </div>
-    </details>
-  </section>
+      </details>
+    </section>
+  </main>
 
-  <!-- Footer -->
-  <footer data-i18n="footer_text">
-    TecIT · Volunteer-based · Low‑barrier help
+  <footer>
+    <div class="container footer-inner">
+      <span data-i18n="footer_text">TecIT · Volunteer-based · Low-barrier help</span>
+    </div>
   </footer>
 
   <script>
-    const aboutDetails = document.getElementById("about-details");
     const reloadLogo = document.getElementById("reload-logo");
     const langButtons = document.querySelectorAll(".lang-button");
-    const openTargetDetails = () => {
-      if (window.location.hash === "#about" && aboutDetails) {
-        aboutDetails.open = true;
-      }
-    };
 
-    const initCollapsibles = () => {
-      document.querySelectorAll(".collapsible").forEach((details) => {
-        const content = details.querySelector(".collapsible-content");
-        const summary = details.querySelector("summary");
-        if (!content) return;
-
-        const setHeight = (isOpen) => {
-          content.style.maxHeight = isOpen ? `${content.scrollHeight}px` : "0px";
-        };
-
-        setHeight(details.open);
-        details.addEventListener("toggle", () => {
-          if (details.open) setHeight(true);
-        });
-        if (summary) {
-          summary.addEventListener("click", (event) => {
-            if (!details.open) return;
-            event.preventDefault();
-            details.classList.add("is-closing");
-            setHeight(true);
-            requestAnimationFrame(() => {
-              content.style.maxHeight = "0px";
-              content.style.opacity = "0";
-              content.style.transform = "translateY(-6px)";
-            });
-            const onEnd = (e) => {
-              if (e.propertyName !== "max-height") return;
-              details.open = false;
-              details.classList.remove("is-closing");
-              content.style.opacity = "";
-              content.style.transform = "";
-              content.removeEventListener("transitionend", onEnd);
-            };
-            content.addEventListener("transitionend", onEnd);
-          });
-        }
-        window.addEventListener("resize", () => {
-          if (details.open) setHeight(true);
-        });
-      });
-    };
-
-    window.addEventListener("hashchange", openTargetDetails);
     if (reloadLogo) {
       reloadLogo.addEventListener("click", (event) => {
         event.preventDefault();
+        window.location.href = "#top";
         window.location.reload();
       });
     }
-    window.addEventListener("load", () => {
-      initCollapsibles();
-      openTargetDetails();
-    });
 
     const translations = {
       en: {
-        hero_title: "Free IT help — when we’re available.",
+        hero_eyebrow: "Volunteer-based IT help",
+        hero_title: "Calm, practical IT help when tech gets annoying.",
         hero_lead:
-          "A small, volunteer-based IT help project run by IT students and tech enthusiasts.",
+          "TecIT is a small volunteer project run by IT students and tech people who like solving real problems without turning it into a support-script circus.",
         cta_request: "Request help",
         cta_how: "How it works",
-        cta_about: "About us",
-        request_title: "Request help",
+        hero_point1: "Simple help with computers, Wi-Fi, devices and software issues",
+        hero_point2: "Volunteer-based, honest and low-pressure",
+        hero_point3: "Best when you need a second pair of eyes on a specific problem",
+        panel_kicker: "What this is good for",
+        panel_title: "A clean way to ask for help without feeling stupid.",
+        panel_body:
+          "Send a short summary of the issue and we’ll take a look when someone is available. If we can help, we’ll reach out.",
+        mini_title1: "Good fit",
+        mini_body1:
+          "PC issues, setup problems, Wi-Fi trouble, strange errors, account or safety questions.",
+        mini_title2: "Not a fit",
+        mini_body2:
+          "Emergency support, guaranteed response times, or anything requiring unsafe access or password sharing.",
+        online_suffix: "online now",
+        signal_label1: "Style",
+        signal_value1: "Human, practical, straight to the point",
+        signal_label2: "Run by",
+        signal_value2: "Students and tech enthusiasts",
+        signal_label3: "Approach",
+        signal_value3: "Best-effort, low-pressure, privacy-minded",
+        request_eyebrow: "Request help",
+        request_title: "Tell us what’s going on.",
         request_lead:
-          "Fill out the form below. If someone is available and able to help, we’ll get back to you.",
+          "Keep it simple. A few good details usually help more than a dramatic essay.",
         label_name: "Name",
         label_email: "Email",
         label_device: "Device / OS",
@@ -339,47 +328,46 @@
           "Thanks! Your request was sent. We’ll get back to you as soon as we can.",
         request_note:
           "Requests are visible to multiple volunteers working on this project.",
-        learn_more: "Learn more",
-        what_title: "What this is",
-        what_body:
-          "We help with everyday technical problems when we have the time. This project is volunteer-based and run in our spare time.",
+        how_eyebrow: "How it works",
+        how_title: "Simple process. No ticket-system theater.",
+        how_step1: "You send a request",
+        how_step2: "We review it when someone has time",
+        how_step3: "If we can help, we get in touch",
+        what_eyebrow: "What we usually help with",
+        what_title: "The everyday stuff that still eats your evening.",
         what_item1: "Wi-Fi and home network issues",
         what_item2: "Windows and macOS problems",
         what_item3: "Basic cybersecurity questions",
-        how_title: "How it works",
-        how_step1: "You submit a request",
-        how_step2: "We review it when available",
-        how_step3: "If someone can help, we’ll get in touch",
-        expect_title: "What to expect",
+        what_item4:
+          "Setup confusion, weird errors and 'why is this suddenly broken?' moments",
+        expect_eyebrow: "What to expect",
+        expect_title: "Honest limits, not fake promises.",
         expect_body:
-          "Help is provided by volunteers in their spare time and offered on a best-effort basis. We can’t guarantee fast responses or solutions to all problems.",
-        when_title: "When is this right for you?",
-        when_body:
-          "This service is best suited when you're stuck with a specific technical problem and can’t quite solve it on your own.",
-        when_item1:
-          "You have an issue with your PC, network, or software and can’t find a clear solution",
-        when_item2:
-          "You’re getting error messages or strange behavior that doesn’t make sense",
-        when_item3: "You’re unsure what is actually safe to do",
-        when_item4:
-          "You want help before doing something that might break or delete something important",
-        when_item5: "You need someone to look at your specific situation",
-        about_title: "About us",
+          "Help is provided by volunteers in their spare time and offered on a best-effort basis. We can’t guarantee fast responses or solutions to everything.",
+        about_eyebrow: "About TecIT",
+        about_title: "A small project built by people who actually like troubleshooting.",
         about_p1:
-          "We’re a small group of IT professionals and tech enthusiasts who enjoy troubleshooting and helping people solve everyday technical problems.",
+          "We’re a small group of IT students and tech enthusiasts who enjoy solving real-world problems and helping people get unstuck.",
         about_p2:
-          "Our background includes a Bachelor’s degree in Cybersecurity, completed through the University of South Wales (USW) and Noroff.",
+          "The project is volunteer-based and run in our spare time, so we help when we can and stay realistic about what we can handle safely.",
         about_p3:
-          "This project is run in our spare time and is completely volunteer-based. We help when we’re available and only with what we can reasonably handle.",
-        footer_text: "TecIT · Volunteer-based · Low‑barrier help",
-        terms_title: "Terms & Service",
-        terms_badge: "Important",
+          "The goal is simple: lower the barrier for getting practical IT help from someone who won’t talk down to you.",
+        when_eyebrow: "When this makes sense",
+        when_title: "Best when you’re stuck on something specific.",
+        when_item1:
+          "You have a problem with your PC, network, or software and can’t find a clear answer",
+        when_item2:
+          "Something is behaving strangely and you want another pair of eyes on it",
+        when_item3: "You’re unsure what is actually safe to do next",
+        when_item4:
+          "You want help before clicking the wrong thing and making it worse",
+        terms_eyebrow: "Privacy and boundaries",
+        terms_title: "Terms & service",
         terms_p1:
-          "This is a volunteer service. Help is provided as‑is, without guarantees or liability. We won’t ask for passwords, and you should never share sensitive data. We may decline requests we can’t safely handle.",
+          "This is a volunteer service. Help is provided as-is, without guarantees or liability. We won’t ask for passwords, and you should never share sensitive data.",
         terms_p2:
-          "We care about privacy and security. We follow GDPR principles, collect only what’s needed, use TLS to protect data in transit, and handle information responsibly.",
+          "We care about privacy and security. We collect only what’s needed, use TLS in transit, and handle submitted information responsibly.",
         delete_title: "Delete my data",
-        delete_badge: "Privacy",
         delete_lead:
           "Use this quick form if you want us to remove your data from our system.",
         delete_data_note:
@@ -393,21 +381,43 @@
         delete_sending: "Sending...",
         delete_error: "Something went wrong. Try again.",
         delete_success: "Request received. We’ll process it soon.",
+        footer_text: "TecIT · Volunteer-based · Low-barrier help",
       },
       no: {
-        hero_title: "Gratis IT-hjelp — når vi har tid.",
+        hero_eyebrow: "Frivillig IT-hjelp",
+        hero_title: "Rolig, praktisk IT-hjelp når teknologien begynner å irritere.",
         hero_lead:
-          "Et lite, frivillig IT-hjelpeprosjekt drevet av IT-studenter og teknologientusiaster.",
+          "TecIT er et lite frivillig prosjekt drevet av IT-studenter og teknologifolk som liker å løse ekte problemer uten å gjøre det til et teit supportmanus.",
         cta_request: "Be om hjelp",
         cta_how: "Slik fungerer det",
-        cta_about: "Om oss",
-        request_title: "Be om hjelp",
+        hero_point1: "Enkel hjelp med PC, Wi-Fi, enheter og programvareproblemer",
+        hero_point2: "Frivillig, ærlig og uten unødvendig press",
+        hero_point3: "Best når du trenger et ekstra sett øyne på et konkret problem",
+        panel_kicker: "Hva dette passer for",
+        panel_title: "En ryddig måte å be om hjelp på uten å føle deg dum.",
+        panel_body:
+          "Send inn en kort oppsummering av problemet, så ser vi på det når noen er tilgjengelige. Hvis vi kan hjelpe, tar vi kontakt.",
+        mini_title1: "Passer bra for",
+        mini_body1:
+          "PC-problemer, oppsett, Wi-Fi-trøbbel, rare feil, konto- eller sikkerhetsspørsmål.",
+        mini_title2: "Passer ikke for",
+        mini_body2:
+          "Akutthjelp, garanterte svartider eller ting som krever utrygg tilgang eller deling av passord.",
+        online_suffix: "pålogget nå",
+        signal_label1: "Stil",
+        signal_value1: "Menneskelig, praktisk og rett på sak",
+        signal_label2: "Drevet av",
+        signal_value2: "Studenter og teknologientusiaster",
+        signal_label3: "Tilnærming",
+        signal_value3: "Best-effort, lavt press og personvernbevisst",
+        request_eyebrow: "Be om hjelp",
+        request_title: "Fortell oss hva som skjer.",
         request_lead:
-          "Fyll ut skjemaet under. Hvis noen er tilgjengelige og kan hjelpe, tar vi kontakt.",
+          "Hold det enkelt. Noen få gode detaljer hjelper som regel mer enn et dramatisk essay.",
         label_name: "Navn",
         label_email: "E-post",
         label_device: "Enhet / OS",
-        placeholder_device: "f.eks. Windows 11‑laptop",
+        placeholder_device: "f.eks. Windows 11-laptop",
         label_subject: "Kort oppsummering",
         label_message: "Beskriv problemet",
         label_urgency: "Haster",
@@ -418,53 +428,52 @@
         success_message:
           "Takk! Forespørselen er sendt. Vi tar kontakt så snart vi kan.",
         request_note:
-          "Forespørsler er synlige for flere frivillige som jobber på dette prosjektet.",
-        learn_more: "Les mer",
-        what_title: "Hva dette er",
-        what_body:
-          "Vi hjelper med hverdagslige tekniske problemer når vi har tid. Prosjektet er frivillig og drives på fritiden.",
-        what_item1: "Wi‑Fi og hjemmenettverksproblemer",
+          "Forespørsler er synlige for flere frivillige som jobber med prosjektet.",
+        how_eyebrow: "Slik fungerer det",
+        how_title: "Enkelt opplegg. Ingen ticket-system-teater.",
+        how_step1: "Du sender inn en forespørsel",
+        how_step2: "Vi ser på den når noen har tid",
+        how_step3: "Hvis vi kan hjelpe, tar vi kontakt",
+        what_eyebrow: "Dette hjelper vi ofte med",
+        what_title: "Den hverdagslige teknologien som fortsatt klarer å spise kvelden din.",
+        what_item1: "Wi-Fi og hjemmenettverksproblemer",
         what_item2: "Windows- og macOS-problemer",
         what_item3: "Grunnleggende cybersikkerhetsspørsmål",
-        how_title: "Slik fungerer det",
-        how_step1: "Du sender inn en forespørsel",
-        how_step2: "Vi vurderer når vi har tid",
-        how_step3: "Hvis noen kan hjelpe, tar vi kontakt",
-        expect_title: "Hva du kan forvente",
+        what_item4:
+          "Oppsettsforvirring, rare feil og klassiske 'hvorfor funket dette i går?' øyeblikk",
+        expect_eyebrow: "Hva du kan forvente",
+        expect_title: "Ærlige rammer, ikke tomme løfter.",
         expect_body:
-          "Hjelp gis av frivillige på fritiden og på best‑effort‑basis. Vi kan ikke garantere raske svar eller løsninger.",
-        when_title: "Når passer dette for deg?",
-        when_body:
-          "Tjenesten passer best når du sitter fast med et konkret teknisk problem og ikke finner en god løsning.",
-        when_item1:
-          "Du har problemer med PC, nettverk eller programvare uten å finne en klar løsning",
-        when_item2:
-          "Du får feilmeldinger eller rar oppførsel som ikke gir mening",
-        when_item3: "Du er usikker på hva som er trygt å gjøre",
-        when_item4:
-          "Du vil ha hjelp før du gjør noe som kan ødelegge eller slette noe viktig",
-        when_item5: "Du trenger noen som ser på situasjonen din",
-        about_title: "Om oss",
+          "Hjelp gis av frivillige på fritiden og på best-effort-basis. Vi kan ikke garantere raske svar eller løsninger på alt.",
+        about_eyebrow: "Om TecIT",
+        about_title: "Et lite prosjekt laget av folk som faktisk liker å feilsøke.",
         about_p1:
-          "Vi er en liten gruppe IT‑folk og teknologientusiaster som liker å feilsøke og hjelpe med hverdagslige tekniske problemer.",
+          "Vi er en liten gruppe IT-studenter og teknologientusiaster som liker å løse ekte problemer og hjelpe folk ut av tekniske blindspor.",
         about_p2:
-          "Bakgrunnen vår inkluderer en bachelorgrad i cybersikkerhet fra University of South Wales (USW) og Noroff.",
+          "Prosjektet er frivillig og drives på fritiden, så vi hjelper når vi kan og holder oss realistiske om hva vi kan håndtere på en trygg måte.",
         about_p3:
-          "Prosjektet drives på fritiden og er helt frivillig. Vi hjelper når vi har mulighet og med det vi kan håndtere.",
-        footer_text: "TecIT · Frivillig · Lavterskel hjelp",
+          "Målet er enkelt: å gjøre det lettere å få praktisk IT-hjelp fra noen som ikke snakker ned til deg.",
+        when_eyebrow: "Når dette gir mening",
+        when_title: "Best når du sitter fast på noe konkret.",
+        when_item1:
+          "Du har et problem med PC, nettverk eller programvare og finner ikke et tydelig svar",
+        when_item2:
+          "Noe oppfører seg rart og du vil at noen andre skal se på det",
+        when_item3: "Du er usikker på hva som faktisk er trygt å gjøre videre",
+        when_item4:
+          "Du vil ha hjelp før du klikker på feil ting og gjør det verre",
+        terms_eyebrow: "Personvern og grenser",
         terms_title: "Vilkår og tjenester",
-        terms_badge: "Viktig",
         terms_p1:
-          "Dette er en frivillig tjeneste. Hjelp gis som den er, uten garantier eller ansvar. Vi ber aldri om passord, og du skal aldri dele sensitiv informasjon. Vi kan avslå forespørsler vi ikke kan håndtere trygt.",
+          "Dette er en frivillig tjeneste. Hjelp gis som den er, uten garantier eller ansvar. Vi ber aldri om passord, og du skal aldri dele sensitiv informasjon.",
         terms_p2:
-          "Vi bryr oss om personvern og sikkerhet. Vi følger GDPR‑prinsipper, samler inn kun det som er nødvendig, bruker TLS for å beskytte data under overføring og håndterer informasjon ansvarlig.",
+          "Vi bryr oss om personvern og sikkerhet. Vi samler bare inn det som trengs, bruker TLS i overføring og håndterer informasjon ansvarlig.",
         delete_title: "Slett mine data",
-        delete_badge: "Personvern",
         delete_lead:
-          "Bruk dette korte skjemaet hvis du vil at vi skal fjerne dataene dine.",
+          "Bruk dette korte skjemaet hvis du vil at vi skal fjerne dataene dine fra systemet vårt.",
         delete_data_note:
-          "Vi lagrer kun informasjonen du sender inn i hjelpeskjemaet (navn, e‑post, enhet, emne, melding, hast).",
-        delete_email: "E‑post",
+          "Vi lagrer kun informasjonen du sender inn i hjelpeskjemaet (navn, e-post, enhet, emne, melding, hast).",
+        delete_email: "E-post",
         delete_type: "Hva skal vi slette?",
         delete_opt_all: "All data om meg",
         delete_opt_requests: "Hjelpeforespørsler",
@@ -473,6 +482,7 @@
         delete_sending: "Sender...",
         delete_error: "Noe gikk galt. Prøv igjen.",
         delete_success: "Forespørsel mottatt. Vi behandler den snart.",
+        footer_text: "TecIT · Frivillig · Lavterskel hjelp",
       },
     };
 
@@ -517,7 +527,6 @@
     const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     const NOTIFY_FUNCTION_NAME = "notify-help-request";
     const CONTACT_FORM_TOKEN = "07a129bf26f76ec0eb5021fe96c8f71679c2bcba49048253636117476f10bd7d";
-    console.log("MODULE LOADED ✅ token start:", CONTACT_FORM_TOKEN.slice(0, 8));
 
     const sessionId =
       (crypto.randomUUID && crypto.randomUUID()) ||
@@ -550,11 +559,12 @@
     const successEl = document.getElementById("form-success");
     const deleteForm = document.getElementById("delete-form");
     const deleteStatus = document.getElementById("delete-status");
+
     if (form) {
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
         if (successEl) successEl.hidden = true;
-        if (statusEl) statusEl.textContent = "Sending...";
+        if (statusEl) statusEl.textContent = translations[document.documentElement.lang]?.delete_sending || "Sending...";
 
         const data = new FormData(form);
         if (data.get("website")) {
@@ -574,7 +584,7 @@
 
         const { error } = await supabase.from("help_requests").insert(payload);
         if (error) {
-          if (statusEl) statusEl.textContent = "Something went wrong. Try again.";
+          if (statusEl) statusEl.textContent = translations[document.documentElement.lang]?.delete_error || "Something went wrong. Try again.";
           return;
         }
 
@@ -586,21 +596,13 @@
         }
 
         if (NOTIFY_FUNCTION_NAME) {
-          console.log("Calling notify function…", {
-            fn: NOTIFY_FUNCTION_NAME,
-            tokenStart: CONTACT_FORM_TOKEN.slice(0, 8),
-          });
-
-          const { data, error } = await supabase.functions.invoke(NOTIFY_FUNCTION_NAME, {
+          const { error: notifyError } = await supabase.functions.invoke(NOTIFY_FUNCTION_NAME, {
             headers: { "X-Form-Token": CONTACT_FORM_TOKEN },
             body: payload,
           });
 
-          console.log("Notify response:", { data, error });
-
-          if (error) {
-            if (statusEl) statusEl.textContent = "Saved, but notify failed. Check console.";
-            return;
+          if (notifyError && statusEl) {
+            statusEl.textContent = "Saved, but notify failed. Check console.";
           }
         }
       });
@@ -628,6 +630,5 @@
       });
     }
   </script>
-
 </body>
 </html>
