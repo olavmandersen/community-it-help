@@ -101,12 +101,12 @@
               <div class="field-grid two-up">
                 <div class="field">
                   <label for="name" data-i18n="label_name">Name</label>
-                  <input id="name" name="name" type="text" autocomplete="name" placeholder="Chuck Norris" required />
+                  <input id="name" name="name" type="text" autocomplete="name" data-i18n-placeholder="placeholder_name" placeholder="e.g. Alex" required />
                 </div>
 
                 <div class="field">
                   <label for="email" data-i18n="label_email">Email</label>
-                  <input id="email" name="email" type="email" autocomplete="email" placeholder="notaborg@skynet.ai" required />
+                  <input id="email" name="email" type="email" autocomplete="email" data-i18n-placeholder="placeholder_email" placeholder="e.g. alex@example.com" required />
                 </div>
               </div>
 
@@ -128,12 +128,12 @@
 
               <div class="field">
                 <label for="subject" data-i18n="label_subject">Short summary</label>
-                <input id="subject" name="subject" type="text" required />
+                <input id="subject" name="subject" type="text" data-i18n-placeholder="placeholder_subject" placeholder="e.g. Wi-Fi keeps disconnecting" required />
               </div>
 
               <div class="field">
                 <label for="message" data-i18n="label_message">Describe the problem</label>
-                <textarea id="message" name="message" rows="6" required></textarea>
+                <textarea id="message" name="message" rows="6" data-i18n-placeholder="placeholder_message" placeholder="Tell us what’s happening, what you’ve tried, and what device you’re using." required></textarea>
               </div>
 
               <input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" />
@@ -313,11 +313,15 @@
         request_lead:
           "Keep it simple. A few good details usually help more than a dramatic essay.",
         label_name: "Name",
+        placeholder_name: "e.g. Alex",
         label_email: "Email",
+        placeholder_email: "e.g. alex@example.com",
         label_device: "Device / OS",
         placeholder_device: "e.g., Windows 11 laptop",
         label_subject: "Short summary",
+        placeholder_subject: "e.g. Wi-Fi keeps disconnecting",
         label_message: "Describe the problem",
+        placeholder_message: "Tell us what’s happening, what you’ve tried, and what device you’re using.",
         label_urgency: "Urgency",
         urgency_low: "Low",
         urgency_medium: "Medium",
@@ -414,11 +418,15 @@
         request_lead:
           "Hold det enkelt. Noen få gode detaljer hjelper som regel mer enn et dramatisk essay.",
         label_name: "Navn",
+        placeholder_name: "f.eks. Ola",
         label_email: "E-post",
+        placeholder_email: "f.eks. ola@epost.no",
         label_device: "Enhet / OS",
         placeholder_device: "f.eks. Windows 11-laptop",
         label_subject: "Kort oppsummering",
+        placeholder_subject: "f.eks. Wi-Fi kobler ut hele tiden",
         label_message: "Beskriv problemet",
+        placeholder_message: "Fortell hva som skjer, hva du har prøvd, og hvilken enhet du bruker.",
         label_urgency: "Haster",
         urgency_low: "Lav",
         urgency_medium: "Middels",
