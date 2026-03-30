@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TecIT</title>
+  <meta
+    name="description"
+    content="TecIT is a volunteer-based IT help project offering calm, practical support with everyday tech problems."
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="brand-mark" href="#top" id="reload-logo" aria-label="Reload TecIT site">TecIT<span>.</span></a>
+
+  <header id="top" class="hero-shell">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="hero-topbar">
+          <div class="lang-toggle" role="group" aria-label="Language">
+            <button class="lang-button" type="button" data-lang="en" aria-pressed="true">English</button>
+            <button class="lang-button" type="button" data-lang="no" aria-pressed="false">Norsk</button>
+          </div>
+
+          <div class="status-pill learning-pill">
+            <span class="dot" aria-hidden="true"></span>
+            <span data-i18n="learning_pill">The only payment we take is what we learn.</span>
+          </div>
+        </div>
+
+        <div class="eyebrow" data-i18n="hero_eyebrow">Volunteer-based IT help</div>
+        <h1 data-i18n="hero_title">Calm, practical IT help when tech gets annoying.</h1>
+        <p class="lead" data-i18n="hero_lead">
+          TecIT is a small volunteer project run by IT students and tech people who like solving real problems without turning it into a support-script circus.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#request" class="button" data-i18n="cta_request">Request help</a>
+          <a href="#how-it-works" class="button secondary" data-i18n="cta_how">How it works</a>
+        </div>
+
+        <ul class="hero-points">
+          <li data-i18n="hero_point1">Simple help with computers, Wi-Fi, devices and software issues</li>
+          <li data-i18n="hero_point2">Volunteer-based, honest and low-pressure</li>
+          <li data-i18n="hero_point3">Best when you need a second pair of eyes on a specific problem</li>
+        </ul>
+      </div>
+
+      <div class="hero-panel card-panel">
+        <div class="panel-kicker" data-i18n="panel_kicker">What this is good for</div>
+        <h2 data-i18n="panel_title">A clean way to ask for help without feeling stupid.</h2>
+        <p data-i18n="panel_body">
+          Send a short summary of the issue and we’ll take a look when someone is available. If we can help, we’ll reach out.
+        </p>
+
+        <div class="mini-grid">
+          <div class="mini-card">
+            <strong data-i18n="mini_title1">Good fit</strong>
+            <p data-i18n="mini_body1">PC issues, setup problems, Wi-Fi trouble, strange errors, account or safety questions.</p>
+          </div>
+          <div class="mini-card">
+            <strong data-i18n="mini_title2">Not a fit</strong>
+            <p data-i18n="mini_body2">Emergency support, guaranteed response times, or anything requiring unsafe access or password sharing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section-strip">
+      <div class="container signal-bar">
+        <div class="signal-item">
+          <span class="signal-label" data-i18n="signal_label1">Style</span>
+          <span class="signal-value" data-i18n="signal_value1">Human, practical, straight to the point</span>
+        </div>
+        <div class="signal-item">
+          <span class="signal-label" data-i18n="signal_label2">Run by</span>
+          <span class="signal-value" data-i18n="signal_value2">Students and tech enthusiasts</span>
+        </div>
+        <div class="signal-item">
+          <span class="signal-label" data-i18n="signal_label3">Approach</span>
+          <span class="signal-value" data-i18n="signal_value3">Best-effort, low-pressure, privacy-minded</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="container content-grid">
+      <section id="request" class="request-column">
+        <div class="section-intro">
+          <div class="eyebrow" data-i18n="request_eyebrow">Request help</div>
+          <h2 data-i18n="request_title">Tell us what’s going on.</h2>
+          <p data-i18n="request_lead">
+            Keep it simple. A few good details usually help more than a dramatic essay.
+          </p>
+        </div>
+
+        <div class="form-wrapper glass-card">
+          <form id="help-form" class="help-form" autocomplete="on">
+            <div class="form-fields">
+              <div class="field-grid two-up">
+                <div class="field">
+                  <label for="name" data-i18n="label_name">Name</label>
+                  <input id="name" name="name" type="text" autocomplete="name" data-i18n-placeholder="placeholder_name" placeholder="e.g. Alex" required />
+                </div>
+
+                <div class="field">
+                  <label for="email" data-i18n="label_email">Email</label>
+                  <input id="email" name="email" type="email" autocomplete="email" data-i18n-placeholder="placeholder_email" placeholder="e.g. alex@example.com" required />
+                </div>
+              </div>
+
+              <div class="field-grid two-up">
+                <div class="field">
+                  <label for="device" data-i18n="label_device">Device / OS</label>
+                  <input id="device" name="device" type="text" data-i18n-placeholder="placeholder_device" placeholder="e.g., Windows 11 laptop" />
+                </div>
+
+                <div class="field">
+                  <label for="urgency" data-i18n="label_urgency">Urgency</label>
+                  <select id="urgency" name="urgency">
+                    <option value="low" data-i18n="urgency_low">Low</option>
+                    <option value="medium" selected data-i18n="urgency_medium">Medium</option>
+                    <option value="high" data-i18n="urgency_high">High</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="subject" data-i18n="label_subject">Short summary</label>
+                <input id="subject" name="subject" type="text" data-i18n-placeholder="placeholder_subject" placeholder="e.g. Wi-Fi keeps disconnecting" required />
+              </div>
+
+              <div class="field">
+                <label for="message" data-i18n="label_message">Describe the problem</label>
+                <textarea id="message" name="message" rows="6" data-i18n-placeholder="placeholder_message" placeholder="Tell us what’s happening, what you’ve tried, and what device you’re using." required></textarea>
+              </div>
+
+              <input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" />
+
+              <div class="form-actions">
+                <button class="button" type="submit" data-i18n="submit">Send request</button>
+                <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+              </div>
+            </div>
+
+            <div class="form-success" id="form-success" role="status" aria-live="polite" hidden>
+              <span data-i18n="success_message">Thanks! Your request was sent. We’ll get back to you as soon as we can.</span>
+            </div>
+          </form>
+        </div>
+
+        <p class="small request-note" data-i18n="request_note">
+          Requests are visible to multiple volunteers working on this project.
+        </p>
+      </section>
+
+      <aside class="info-column">
+        <section id="how-it-works" class="info-card glass-card">
+          <div class="eyebrow" data-i18n="how_eyebrow">How it works</div>
+          <h3 data-i18n="how_title">Simple process. No ticket-system theater.</h3>
+          <ol>
+            <li data-i18n="how_step1">You send a request</li>
+            <li data-i18n="how_step2">We review it when someone has time</li>
+            <li data-i18n="how_step3">If we can help, we get in touch</li>
+          </ol>
+        </section>
+
+        <section class="info-card glass-card">
+          <div class="eyebrow" data-i18n="what_eyebrow">What we usually help with</div>
+          <h3 data-i18n="what_title">The everyday stuff that still eats your evening.</h3>
+          <ul>
+            <li data-i18n="what_item1">Wi-Fi and home network issues</li>
+            <li data-i18n="what_item2">Windows and macOS problems</li>
+            <li data-i18n="what_item3">Basic cybersecurity questions</li>
+            <li data-i18n="what_item4">Setup confusion, weird errors and “why is this suddenly broken?” moments</li>
+          </ul>
+        </section>
+
+        <section class="info-card glass-card">
+          <div class="eyebrow" data-i18n="expect_eyebrow">What to expect</div>
+          <h3 data-i18n="expect_title">Honest limits, not fake promises.</h3>
+          <p data-i18n="expect_body">
+            Help is provided by volunteers in their spare time and offered on a best-effort basis. We can’t guarantee fast responses or solutions to everything.
+          </p>
+        </section>
+
+        <section id="about" class="info-card glass-card">
+          <div class="eyebrow" data-i18n="about_eyebrow">About TecIT</div>
+          <h3 data-i18n="about_title">A small project built by people who actually like troubleshooting.</h3>
+          <p data-i18n="about_p1">
+            We’re a small group of IT students and tech enthusiasts who enjoy solving real-world problems and helping people get unstuck.
+          </p>
+          <p data-i18n="about_p2">
+            The project is volunteer-based and run in our spare time, so we help when we can and stay realistic about what we can handle safely.
+          </p>
+          <p data-i18n="about_p3">
+            The goal is simple: lower the barrier for getting practical IT help from someone who won’t talk down to you.
+          </p>
+        </section>
+      </aside>
+    </section>
+
+    <section class="container trust-grid">
+      <div class="trust-card glass-card">
+        <div class="eyebrow" data-i18n="when_eyebrow">When this makes sense</div>
+        <h3 data-i18n="when_title">Best when you’re stuck on something specific.</h3>
+        <ul>
+          <li data-i18n="when_item1">You have a problem with your PC, network, or software and can’t find a clear answer</li>
+          <li data-i18n="when_item2">Something is behaving strangely and you want another pair of eyes on it</li>
+          <li data-i18n="when_item3">You’re unsure what is actually safe to do next</li>
+          <li data-i18n="when_item4">You want help before clicking the wrong thing and making it worse</li>
+        </ul>
+      </div>
+
+      <div class="trust-card glass-card">
+        <div class="eyebrow" data-i18n="terms_eyebrow">Privacy and boundaries</div>
+        <h3 data-i18n="terms_title">Terms & service</h3>
+        <p data-i18n="terms_p1">
+          This is a volunteer service. Help is provided as-is, without guarantees or liability. We won’t ask for passwords, and you should never share sensitive data.
+        </p>
+        <p data-i18n="terms_p2">
+          We care about privacy and security. We collect only what’s needed, use TLS in transit, and handle submitted information responsibly.
+        </p>
+      </div>
+    </section>
+
+    <section class="container delete-wrap">
+      <details class="delete-card glass-card">
+        <summary>
+          <span data-i18n="delete_title">Delete my data</span>
+        </summary>
+        <div class="collapsible-content static-open-content">
+          <p data-i18n="delete_lead">
+            Use this quick form if you want us to remove your data from our system.
+          </p>
+          <p class="small" data-i18n="delete_data_note">
+            We only store the information you submit in the help form (name, email, device, subject, message, urgency).
+          </p>
+          <form id="delete-form" class="help-form compact-form" autocomplete="on">
+            <div class="field-grid two-up">
+              <div class="field">
+                <label for="delete-email" data-i18n="delete_email">Email</label>
+                <input id="delete-email" name="email" type="email" autocomplete="email" required />
+              </div>
+              <div class="field">
+                <label for="delete-type" data-i18n="delete_type">What should we delete?</label>
+                <select id="delete-type" name="type" required>
+                  <option value="all" data-i18n="delete_opt_all">All data about me</option>
+                  <option value="requests" data-i18n="delete_opt_requests">Help requests</option>
+                  <option value="messages" data-i18n="delete_opt_messages">Messages / notes</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-actions compact-actions">
+              <button class="button secondary" type="submit" data-i18n="delete_submit">Send delete request</button>
+              <p class="form-status" id="delete-status" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span data-i18n="footer_text">TecIT · Volunteer-based · Low-barrier help</span>
+    </div>
+  </footer>
+
+  <script>
+    const reloadLogo = document.getElementById("reload-logo");
+    const langButtons = document.querySelectorAll(".lang-button");
+
+    if (reloadLogo) {
+      reloadLogo.addEventListener("click", (event) => {
+        event.preventDefault();
+        window.location.href = "#top";
+        window.location.reload();
+      });
+    }
+
+    const translations = {
+      en: {
+        hero_eyebrow: "Volunteer-based IT help",
+        hero_title: "Calm, practical IT help when tech gets annoying.",
+        hero_lead:
+          "TecIT is currently run by one person with an IT background, with plans to gradually expand into a small volunteer team over time.",
+        cta_request: "Request help",
+        cta_how: "How it works",
+        hero_point1: "Simple help with computers, Wi-Fi, devices and software issues",
+        hero_point2: "Volunteer-based, honest and low-pressure",
+        hero_point3: "Best when you need a second pair of eyes on a specific problem",
+        panel_kicker: "What this is good for",
+        panel_title: "A clean way to ask for help without feeling stupid.",
+        panel_body:
+          "Send a short summary of the issue and we’ll take a look when someone is available. If we can help, we’ll reach out.",
+        mini_title1: "Good fit",
+        mini_body1:
+          "PC issues, setup problems, Wi-Fi trouble, strange errors, account or safety questions.",
+        mini_title2: "Not a fit",
+        mini_body2:
+          "Emergency support, guaranteed response times, or anything requiring unsafe access or password sharing.",
+        learning_pill: "The only payment we take is what we learn.",
+        signal_label1: "Style",
+        signal_value1: "Human, practical, straight to the point",
+        signal_label2: "Run by",
+        signal_value2: "One person for now, with plans to expand",
+        signal_label3: "Approach",
+        signal_value3: "Best-effort, low-pressure, privacy-minded",
+        request_eyebrow: "Request help",
+        request_title: "Tell us what’s going on.",
+        request_lead:
+          "Keep it simple. A few good details usually help more than a dramatic essay.",
+        label_name: "Name",
+        placeholder_name: "e.g. Alex",
+        label_email: "Email",
+        placeholder_email: "e.g. alex@example.com",
+        label_device: "Device / OS",
+        placeholder_device: "e.g., Windows 11 laptop",
+        label_subject: "Short summary",
+        placeholder_subject: "e.g. Wi-Fi keeps disconnecting",
+        label_message: "Describe the problem",
+        placeholder_message: "Tell us what’s happening, what you’ve tried, and what device you’re using.",
+        label_urgency: "Urgency",
+        urgency_low: "Low",
+        urgency_medium: "Medium",
+        urgency_high: "High",
+        submit: "Send request",
+        success_message:
+          "Thanks! Your request was sent. We’ll get back to you as soon as we can.",
+        request_note:
+          "Requests are visible to multiple volunteers working on this project.",
+        how_eyebrow: "How it works",
+        how_title: "Simple process. No ticket-system theater.",
+        how_step1: "You send a request",
+        how_step2: "We review it when someone has time",
+        how_step3: "If we can help, we get in touch",
+        what_eyebrow: "What we usually help with",
+        what_title: "The everyday stuff that still eats your evening.",
+        what_item1: "Wi-Fi and home network issues",
+        what_item2: "Windows and macOS problems",
+        what_item3: "Basic cybersecurity questions",
+        what_item4:
+          "Setup confusion, weird errors and 'why is this suddenly broken?' moments",
+        expect_eyebrow: "What to expect",
+        expect_title: "Honest limits, not fake promises.",
+        expect_body:
+          "Help is provided by volunteers in their spare time and offered on a best-effort basis. We can’t guarantee fast responses or solutions to everything.",
+        about_eyebrow: "About TecIT",
+        about_title: "A small project built by people who actually like troubleshooting.",
+        about_p1:
+          "TecIT is currently run by one person who enjoys solving real-world tech problems and helping people get unstuck.",
+        about_p2:
+          "The plan is to gradually expand into a small volunteer team over time, but for now this is still a one-person project.",
+        about_p3:
+          "The goal is simple: lower the barrier for getting practical IT help from someone who keeps it calm, useful and honest.",
+        when_eyebrow: "When this makes sense",
+        when_title: "Best when you’re stuck on something specific.",
+        when_item1:
+          "You have a problem with your PC, network, or software and can’t find a clear answer",
+        when_item2:
+          "Something is behaving strangely and you want another pair of eyes on it",
+        when_item3: "You’re unsure what is actually safe to do next",
+        when_item4:
+          "You want help before clicking the wrong thing and making it worse",
+        terms_eyebrow: "Privacy and boundaries",
+        terms_title: "Terms & service",
+        terms_p1:
+          "This is a volunteer service. Help is provided as-is, without guarantees or liability. We won’t ask for passwords, and you should never share sensitive data.",
+        terms_p2:
+          "We care about privacy and security. We collect only what’s needed, use TLS in transit, and handle submitted information responsibly.",
+        delete_title: "Delete my data",
+        delete_lead:
+          "Use this quick form if you want us to remove your data from our system.",
+        delete_data_note:
+          "We only store the information you submit in the help form (name, email, device, subject, message, urgency).",
+        delete_email: "Email",
+        delete_type: "What should we delete?",
+        delete_opt_all: "All data about me",
+        delete_opt_requests: "Help requests",
+        delete_opt_messages: "Messages / notes",
+        delete_submit: "Send delete request",
+        delete_sending: "Sending...",
+        delete_error: "Something went wrong. Try again.",
+        delete_success: "Request received. We’ll process it soon.",
+        footer_text: "TecIT · Volunteer-based · Low-barrier help",
+      },
+      no: {
+        hero_eyebrow: "Frivillig IT-hjelp",
+        hero_title: "Rolig, praktisk IT-hjelp når teknologien begynner å irritere.",
+        hero_lead:
+          "TecIT drives foreløpig av én person med IT-bakgrunn, med planer om å utvide det gradvis til et lite frivillig team over tid.",
+        cta_request: "Be om hjelp",
+        cta_how: "Slik fungerer det",
+        hero_point1: "Enkel hjelp med PC, Wi-Fi, enheter og programvareproblemer",
+        hero_point2: "Frivillig, ærlig og uten unødvendig press",
+        hero_point3: "Best når du trenger et ekstra sett øyne på et konkret problem",
+        panel_kicker: "Hva dette passer for",
+        panel_title: "En ryddig måte å be om hjelp på uten å føle deg dum.",
+        panel_body:
+          "Send inn en kort oppsummering av problemet, så ser vi på det når noen er tilgjengelige. Hvis vi kan hjelpe, tar vi kontakt.",
+        mini_title1: "Passer bra for",
+        mini_body1:
+          "PC-problemer, oppsett, Wi-Fi-trøbbel, rare feil, konto- eller sikkerhetsspørsmål.",
+        mini_title2: "Passer ikke for",
+        mini_body2:
+          "Akutthjelp, garanterte svartider eller ting som krever utrygg tilgang eller deling av passord.",
+        learning_pill: "Den eneste betalingen vi tar er det vi lærer.",
+        signal_label1: "Stil",
+        signal_value1: "Menneskelig, praktisk og rett på sak",
+        signal_label2: "Drevet av",
+        signal_value2: "Én person foreløpig, med planer om å utvide",
+        signal_label3: "Tilnærming",
+        signal_value3: "Best-effort, lavt press og personvernbevisst",
+        request_eyebrow: "Be om hjelp",
+        request_title: "Fortell oss hva som skjer.",
+        request_lead:
+          "Hold det enkelt. Noen få gode detaljer hjelper som regel mer enn et dramatisk essay.",
+        label_name: "Navn",
+        placeholder_name: "f.eks. Ola",
+        label_email: "E-post",
+        placeholder_email: "f.eks. ola@epost.no",
+        label_device: "Enhet / OS",
+        placeholder_device: "f.eks. Windows 11-laptop",
+        label_subject: "Kort oppsummering",
+        placeholder_subject: "f.eks. Wi-Fi kobler ut hele tiden",
+        label_message: "Beskriv problemet",
+        placeholder_message: "Fortell hva som skjer, hva du har prøvd, og hvilken enhet du bruker.",
+        label_urgency: "Haster",
+        urgency_low: "Lav",
+        urgency_medium: "Middels",
+        urgency_high: "Høy",
+        submit: "Send forespørsel",
+        success_message:
+          "Takk! Forespørselen er sendt. Vi tar kontakt så snart vi kan.",
+        request_note:
+          "Forespørsler er synlige for flere frivillige som jobber med prosjektet.",
+        how_eyebrow: "Slik fungerer det",
+        how_title: "Enkelt opplegg. Ingen ticket-system-teater.",
+        how_step1: "Du sender inn en forespørsel",
+        how_step2: "Vi ser på den når noen har tid",
+        how_step3: "Hvis vi kan hjelpe, tar vi kontakt",
+        what_eyebrow: "Dette hjelper vi ofte med",
+        what_title: "Den hverdagslige teknologien som fortsatt klarer å spise kvelden din.",
+        what_item1: "Wi-Fi og hjemmenettverksproblemer",
+        what_item2: "Windows- og macOS-problemer",
+        what_item3: "Grunnleggende cybersikkerhetsspørsmål",
+        what_item4:
+          "Oppsettsforvirring, rare feil og klassiske 'hvorfor funket dette i går?' øyeblikk",
+        expect_eyebrow: "Hva du kan forvente",
+        expect_title: "Ærlige rammer, ikke tomme løfter.",
+        expect_body:
+          "Hjelp gis av frivillige på fritiden og på best-effort-basis. Vi kan ikke garantere raske svar eller løsninger på alt.",
+        about_eyebrow: "Om TecIT",
+        about_title: "Et lite prosjekt laget av folk som faktisk liker å feilsøke.",
+        about_p1:
+          "TecIT drives foreløpig av én person som liker å løse ekte tekniske problemer og hjelpe folk ut av tekniske blindspor.",
+        about_p2:
+          "Planen er å utvide det gradvis til et lite frivillig team over tid, men akkurat nå er dette fortsatt et én-personsprosjekt.",
+        about_p3:
+          "Målet er enkelt: å gjøre det lettere å få praktisk IT-hjelp fra noen som holder det rolig, nyttig og ærlig.",
+        when_eyebrow: "Når dette gir mening",
+        when_title: "Best når du sitter fast på noe konkret.",
+        when_item1:
+          "Du har et problem med PC, nettverk eller programvare og finner ikke et tydelig svar",
+        when_item2:
+          "Noe oppfører seg rart og du vil at noen andre skal se på det",
+        when_item3: "Du er usikker på hva som faktisk er trygt å gjøre videre",
+        when_item4:
+          "Du vil ha hjelp før du klikker på feil ting og gjør det verre",
+        terms_eyebrow: "Personvern og grenser",
+        terms_title: "Vilkår og tjenester",
+        terms_p1:
+          "Dette er en frivillig tjeneste. Hjelp gis som den er, uten garantier eller ansvar. Vi ber aldri om passord, og du skal aldri dele sensitiv informasjon.",
+        terms_p2:
+          "Vi bryr oss om personvern og sikkerhet. Vi samler bare inn det som trengs, bruker TLS i overføring og håndterer informasjon ansvarlig.",
+        delete_title: "Slett mine data",
+        delete_lead:
+          "Bruk dette korte skjemaet hvis du vil at vi skal fjerne dataene dine fra systemet vårt.",
+        delete_data_note:
+          "Vi lagrer kun informasjonen du sender inn i hjelpeskjemaet (navn, e-post, enhet, emne, melding, hast).",
+        delete_email: "E-post",
+        delete_type: "Hva skal vi slette?",
+        delete_opt_all: "All data om meg",
+        delete_opt_requests: "Hjelpeforespørsler",
+        delete_opt_messages: "Meldinger / notater",
+        delete_submit: "Send sletteforespørsel",
+        delete_sending: "Sender...",
+        delete_error: "Noe gikk galt. Prøv igjen.",
+        delete_success: "Forespørsel mottatt. Vi behandler den snart.",
+        footer_text: "TecIT · Frivillig · Lavterskel hjelp",
+      },
+    };
+
+    const applyLanguage = (lang) => {
+      const dict = translations[lang] || translations.en;
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (!dict[key]) return;
+        el.textContent = dict[key];
+      });
+      document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+        const key = el.getAttribute("data-i18n-placeholder");
+        if (!dict[key]) return;
+        el.setAttribute("placeholder", dict[key]);
+      });
+      langButtons.forEach((btn) => {
+        const isActive = btn.dataset.lang === lang;
+        btn.setAttribute("aria-pressed", String(isActive));
+        btn.classList.toggle("active", isActive);
+      });
+      document.documentElement.lang = lang === "no" ? "no" : "en";
+      localStorage.setItem("site_lang", lang);
+    };
+
+    const savedLang = localStorage.getItem("site_lang");
+    const browserLang = navigator.language && navigator.language.startsWith("no") ? "no" : "en";
+    applyLanguage(savedLang || browserLang);
+
+    langButtons.forEach((btn) => {
+      btn.addEventListener("click", () => applyLanguage(btn.dataset.lang));
+    });
+  </script>
+
+  <script>
+    const form = document.getElementById("help-form");
+    const statusEl = document.getElementById("form-status");
+    const successEl = document.getElementById("form-success");
+    const deleteForm = document.getElementById("delete-form");
+    const deleteStatus = document.getElementById("delete-status");
+
+    if (form) {
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        if (successEl) successEl.hidden = true;
+        if (statusEl) statusEl.textContent = translations[document.documentElement.lang]?.delete_sending || "Sending...";
+
+        const data = new FormData(form);
+        if (data.get("website")) {
+          if (statusEl) statusEl.textContent = "Thanks!";
+          form.reset();
+          return;
+        }
+
+        const payload = {
+          name: data.get("name"),
+          email: data.get("email"),
+          device: data.get("device"),
+          subject: data.get("subject"),
+          message: data.get("message"),
+          urgency: data.get("urgency"),
+        };
+
+        try {
+          const response = await fetch("/api/help-request", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+
+          if (!response.ok) {
+            throw new Error("Request failed");
+          }
+        } catch (error) {
+          if (statusEl) statusEl.textContent = translations[document.documentElement.lang]?.delete_error || "Something went wrong. Try again.";
+          return;
+        }
+
+        if (statusEl) statusEl.textContent = "";
+        if (successEl) successEl.hidden = false;
+        form.classList.add("submitted");
+        if (successEl) {
+          successEl.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      });
+    }
+
+    if (deleteForm) {
+      deleteForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        if (deleteStatus) deleteStatus.textContent = translations[document.documentElement.lang]?.delete_sending || "Sending...";
+
+        const data = new FormData(deleteForm);
+        const payload = {
+          email: data.get("email"),
+          type: data.get("type"),
+        };
+
+        try {
+          const response = await fetch("/api/delete-request", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+
+          if (!response.ok) {
+            throw new Error("Delete request failed");
+          }
+        } catch (error) {
+          if (deleteStatus) deleteStatus.textContent = translations[document.documentElement.lang]?.delete_error || "Something went wrong. Try again.";
+          return;
+        }
+
+        if (deleteStatus) deleteStatus.textContent = translations[document.documentElement.lang]?.delete_success || "Request received. We’ll process it soon.";
+        deleteForm.reset();
+      });
+    }
+  </script>
+</body>
+</html>
