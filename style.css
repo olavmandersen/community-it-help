@@ -37,6 +37,8 @@ body {
     radial-gradient(circle at top left, rgba(91, 128, 255, 0.18), transparent 28%),
     radial-gradient(circle at top right, rgba(56, 189, 248, 0.14), transparent 22%),
     linear-gradient(180deg, #091120 0%, #070b14 35%, #060910 100%);
+  opacity: 0;
+  animation: pageFade 0.7s ease forwards;
 }
 
 body::before {
@@ -105,6 +107,7 @@ body::before {
   padding: 2.25rem;
   position: relative;
   overflow: hidden;
+  animation: fadeUp 0.8s ease 0.08s both;
 }
 
 .hero-copy::after {
@@ -123,6 +126,7 @@ body::before {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  animation: fadeUp 0.8s ease 0.18s both;
 }
 
 .hero-topbar {
@@ -340,7 +344,12 @@ li {
   border-radius: 16px;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.025);
+  animation: fadeUp 0.75s ease both;
 }
+
+.signal-item:nth-child(1) { animation-delay: 0.18s; }
+.signal-item:nth-child(2) { animation-delay: 0.26s; }
+.signal-item:nth-child(3) { animation-delay: 0.34s; }
 
 .signal-label {
   display: block;
@@ -367,6 +376,15 @@ li {
 .info-column {
   min-width: 0;
 }
+
+.request-column {
+  animation: fadeUp 0.85s ease 0.26s both;
+}
+
+.info-card:nth-child(1) { animation: fadeUp 0.75s ease 0.28s both; }
+.info-card:nth-child(2) { animation: fadeUp 0.75s ease 0.36s both; }
+.info-card:nth-child(3) { animation: fadeUp 0.75s ease 0.44s both; }
+.info-card:nth-child(4) { animation: fadeUp 0.75s ease 0.52s both; }
 
 .section-intro {
   margin-bottom: 1rem;
@@ -496,10 +514,15 @@ li {
 .trust-card {
   border-radius: var(--radius-lg);
   padding: 1.45rem;
+  animation: fadeUp 0.8s ease both;
 }
+
+.trust-card:nth-child(1) { animation-delay: 0.34s; }
+.trust-card:nth-child(2) { animation-delay: 0.44s; }
 
 .delete-wrap {
   padding: 1rem 0 2rem;
+  animation: fadeUp 0.85s ease 0.5s both;
 }
 
 .delete-card {
@@ -548,6 +571,7 @@ li {
   text-align: center;
   color: var(--soft);
   font-size: 0.94rem;
+  animation: fadeUp 0.8s ease 0.58s both;
 }
 
 .hp-field {
@@ -614,5 +638,29 @@ li {
   *::after {
     transition: none !important;
     animation: none !important;
+  }
+
+  body {
+    opacity: 1;
+  }
+}
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
