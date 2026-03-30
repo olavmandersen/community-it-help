@@ -22,10 +22,9 @@
             <button class="lang-button" type="button" data-lang="no" aria-pressed="false">Norsk</button>
           </div>
 
-          <div class="status-pill" aria-live="polite">
+          <div class="status-pill learning-pill">
             <span class="dot" aria-hidden="true"></span>
-            <span id="live-count">0</span>
-            <span data-i18n="online_suffix">online now</span>
+            <span data-i18n="learning_pill">The only payment we take is what we learn.</span>
           </div>
         </div>
 
@@ -302,7 +301,7 @@
         mini_title2: "Not a fit",
         mini_body2:
           "Emergency support, guaranteed response times, or anything requiring unsafe access or password sharing.",
-        online_suffix: "online now",
+        learning_pill: "The only payment we take is what we learn.",
         signal_label1: "Style",
         signal_value1: "Human, practical, straight to the point",
         signal_label2: "Run by",
@@ -403,7 +402,7 @@
         mini_title2: "Passer ikke for",
         mini_body2:
           "Akutthjelp, garanterte svartider eller ting som krever utrygg tilgang eller deling av passord.",
-        online_suffix: "pålogget nå",
+        learning_pill: "Den eneste betalingen vi tar er det vi lærer.",
         signal_label1: "Stil",
         signal_value1: "Menneskelig, praktisk og rett på sak",
         signal_label2: "Drevet av",
@@ -517,19 +516,11 @@
   </script>
 
   <script>
-    const countEl = document.getElementById("live-count");
     const form = document.getElementById("help-form");
     const statusEl = document.getElementById("form-status");
     const successEl = document.getElementById("form-success");
     const deleteForm = document.getElementById("delete-form");
     const deleteStatus = document.getElementById("delete-status");
-
-    const setOnlineCount = () => {
-      if (!countEl) return;
-      countEl.textContent = "1";
-    };
-
-    setOnlineCount();
 
     if (form) {
       form.addEventListener("submit", async (event) => {
