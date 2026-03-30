@@ -48,6 +48,8 @@ const insertDeleteRequest = db.prepare(`
   VALUES (@email, @type)
 `);
 
+const requestLog = new Map();
+
 const app = express();
 
 app.use(express.json({ limit: "200kb" }));
@@ -72,6 +74,30 @@ const sanitizeMessage = (value, max = 10000) => {
   return value.trim().slice(0, max);
 };
 
+const getClientIp = (req) => {
+  const forwarded = req.headers["x-forwarded-for"];
+  if (typeof forwarded === "string" && forwarded.trim()) {
+    return forwarded.split(",")[0].trim();
+  }
+  return req.socket?.remoteAddress || "unknown";
+};
+
+const isRateLimited = (req, key = "default", maxRequests = 5, windowMs = 10 * 60 * 1000) => {
+  const ip = `${getClientIp(req)}:${key}`;
+  const now = Date.now();
+  const existing = requestLog.get(ip) || [];
+  const recent = existing.filter((timestamp) => now - timestamp < windowMs);
+
+  if (recent.length >= maxRequests) {
+    requestLog.set(ip, recent);
+    return true;
+  }
+
+  recent.push(now);
+  requestLog.set(ip, recent);
+  return false;
+};
+
 const truncate = (value, max = 1000) => {
   if (!value) return "";
   return value.length > max ? `${value.slice(0, max - 1)}…` : value;
@@ -94,7 +120,10 @@ const sendDiscordWebhook = async (payload) => {
   const response = await fetch(DISCORD_WEBHOOK_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ content }),
+    body: JSON.stringify({
+      content,
+      allowed_mentions: { parse: [] },
+    }),
   });
 
   if (!response.ok) {
@@ -110,6 +139,14 @@ app.get("/api/health", (_req, res) => {
 });
 
 app.post("/api/help-request", async (req, res) => {
+  if (isRateLimited(req, "help", 5, 10 * 60 * 1000)) {
+    return res.status(429).json({ ok: false, error: "Too many requests. Try again later." });
+  }
+
+  if (typeof req.body?.website === "string" && req.body.website.trim()) {
+    return res.status(200).json({ ok: true });
+  }
+
   const payload = {
     name: sanitizeText(req.body?.name, 120),
     email: sanitizeText(req.body?.email, 200).toLowerCase(),
@@ -119,7 +156,15 @@ app.post("/api/help-request", async (req, res) => {
     urgency: sanitizeText(req.body?.urgency, 20).toLowerCase() || "medium",
   };
 
-  if (!payload.name || !payload.subject || !payload.message || !isValidEmail(payload.email)) {
+  if (
+    !payload.name ||
+    payload.name.length < 2 ||
+    !payload.subject ||
+    payload.subject.length < 3 ||
+    !payload.message ||
+    payload.message.length < 10 ||
+    !isValidEmail(payload.email)
+  ) {
     return res.status(400).json({ ok: false, error: "Invalid request payload" });
   }
 
@@ -144,6 +189,10 @@ app.post("/api/help-request", async (req, res) => {
 });
 
 app.post("/api/delete-request", (req, res) => {
+  if (isRateLimited(req, "delete", 3, 10 * 60 * 1000)) {
+    return res.status(429).json({ ok: false, error: "Too many requests. Try again later." });
+  }
+
   const payload = {
     email: sanitizeText(req.body?.email, 200).toLowerCase(),
     type: sanitizeText(req.body?.type, 40).toLowerCase() || "all",
